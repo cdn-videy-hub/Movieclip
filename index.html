@@ -31,8 +31,6 @@ body{
   overflow:hidden;
 }
 
-/* BACKGROUND IMAGE */
-
 .bg-image{
   position:absolute;
   width:100%;
@@ -40,8 +38,6 @@ body{
   inset:0;
   object-fit:cover;
 }
-
-/* OVERLAY */
 
 .overlay{
   position:absolute;
@@ -90,7 +86,7 @@ body{
   color:#d4a45f;
 }
 
-/* HERO CONTENT */
+/* HERO */
 
 .hero-content{
   position:absolute;
@@ -118,8 +114,6 @@ body{
   line-height:1.7;
   margin-bottom:28px;
 }
-
-/* BUTTON */
 
 .hero-content button{
   padding:15px 35px;
@@ -166,7 +160,18 @@ body{
   border-radius:22px;
 }
 
-/* LIST VIDEO */
+/* BANNER */
+
+.banner-ads{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:25px 0;
+  overflow:hidden;
+}
+
+/* VIDEO LIST */
 
 .video-list{
   display:grid;
@@ -211,7 +216,7 @@ body{
   line-height:1.5;
 }
 
-/* BACK BUTTON */
+/* BUTTON */
 
 .back-btn{
   margin-bottom:20px;
@@ -261,7 +266,7 @@ body{
 <body>
 
 <!-- =========================
-     HALAMAN HOME
+     HOME PAGE
 ========================= -->
 
 <section class="home-page" id="homePage">
@@ -307,7 +312,7 @@ body{
 </section>
 
 <!-- =========================
-     HALAMAN VIDEO
+     VIDEO PAGE
 ========================= -->
 
 <section class="video-page" id="videoPage">
@@ -329,6 +334,18 @@ body{
     >
       <source src="Ad.mp4" type="video/mp4">
     </video>
+
+  </div>
+
+  <!-- BANNER IKLAN -->
+
+  <div class="banner-ads">
+
+    <script async="async" data-cfasync="false"
+    src="https://sireimplement.com/83d5edc9887aba56c2cdb2e856dd539e/invoke.js">
+    </script>
+
+    <div id="container-83d5edc9887aba56c2cdb2e856dd539e"></div>
 
   </div>
 
@@ -428,7 +445,7 @@ body{
 
 </section>
 
-<!-- IKLAN -->
+<!-- POPUNDER -->
 
 <script src="https://rungbeacon.com/ac/cd/19/accd19456467f32573107aa43783b50a.js"></script>
 
@@ -461,4 +478,4 @@ function changeVideo(videoSrc){
 </script>
 
 </body>
-</html>
+  </html>

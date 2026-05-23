@@ -3,260 +3,216 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Video Collection</title>
+
+<title>Private Match</title>
+
+<!-- SOCIAL BAR -->
+<script src="https://sireimplement.com/cf/d7/26/cfd726812d10614ec29390dd3687a1f5.js"></script>
 
 <style>
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-  background:#050505;
-  color:white;
-  overflow-x:hidden;
+background:#000;
+overflow:hidden;
 }
 
-/* =========================
-   HALAMAN HOME
-========================= */
+/* BACKGROUND */
 
-.home-page{
-  position:relative;
-  width:100%;
-  height:100vh;
-  overflow:hidden;
+.bg{
+position:fixed;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+filter:blur(1.5px) brightness(.45);
+transform:scale(1.08);
 }
 
-.bg-image{
-  position:absolute;
-  width:100%;
-  height:100%;
-  inset:0;
-  object-fit:cover;
-}
+/* OVERLAY */
 
 .overlay{
-  position:absolute;
-  inset:0;
-  background:
-  linear-gradient(
-    to right,
-    rgba(0,0,0,0.88),
-    rgba(0,0,0,0.45)
-  );
-  backdrop-filter:blur(2px);
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.45);
 }
 
-/* NAVBAR */
+/* HEADER */
 
-.navbar{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  padding:28px 60px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:10;
+.header{
+position:relative;
+z-index:10;
+display:flex;
+align-items:center;
+gap:12px;
+padding:18px;
 }
 
 .logo{
-  font-size:30px;
-  font-weight:700;
-  color:#d4a45f;
+width:45px;
+height:45px;
+border-radius:50%;
+background:#ff3f8f;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+font-size:22px;
+font-weight:bold;
+box-shadow:0 0 20px rgba(255,63,143,.5);
 }
 
-.navbar ul{
-  display:flex;
-  gap:40px;
-  list-style:none;
+.logo-text h2{
+color:#fff;
+font-size:18px;
 }
 
-.navbar ul li{
-  cursor:pointer;
-  transition:0.3s;
+.logo-text p{
+color:#ccc;
+font-size:13px;
 }
 
-.navbar ul li:hover{
-  color:#d4a45f;
+/* CONTENT */
+
+.content{
+position:relative;
+z-index:10;
+height:calc(100vh - 80px);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+text-align:center;
 }
 
-/* HERO */
-
-.hero-content{
-  position:absolute;
-  z-index:10;
-  top:50%;
-  left:60px;
-  transform:translateY(-50%);
-  max-width:600px;
+.online{
+background:#18c964;
+padding:10px 18px;
+border-radius:40px;
+font-size:14px;
+font-weight:bold;
+color:#fff;
+margin-bottom:25px;
+animation:pulse 1.5s infinite;
 }
 
-.hero-content span{
-  color:#d4a45f;
-  letter-spacing:4px;
-  font-size:13px;
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
 }
 
-.hero-content h1{
-  font-size:90px;
-  line-height:0.95;
-  margin:18px 0;
+h1{
+font-size:48px;
+line-height:1.15;
+color:#fff;
+margin-bottom:20px;
+text-shadow:0 4px 12px rgba(0,0,0,.4);
 }
 
-.hero-content p{
-  color:#ddd;
-  line-height:1.7;
-  margin-bottom:28px;
+.desc{
+color:#eee;
+font-size:18px;
+line-height:1.5;
+max-width:500px;
+margin-bottom:35px;
 }
 
-.hero-content button{
-  padding:15px 35px;
-  border:none;
-  background:#d4a45f;
-  color:black;
-  font-weight:700;
-  border-radius:10px;
-  cursor:pointer;
-  transition:0.3s;
+.btn{
+width:100%;
+max-width:420px;
+padding:20px;
+border:none;
+border-radius:60px;
+font-size:22px;
+font-weight:700;
+cursor:pointer;
+transition:.25s;
+margin-bottom:18px;
 }
 
-.hero-content button:hover{
-  transform:scale(1.05);
+.btn:hover{
+transform:scale(1.03);
 }
 
-/* =========================
-   HALAMAN VIDEO
-========================= */
-
-.video-page{
-  display:none;
-  min-height:100vh;
-  padding:30px;
-  background:#050505;
+.btn-no{
+background:#fff;
+color:#111;
 }
 
-/* VIDEO BESAR */
-
-.main-video{
-  width:100%;
-  height:75vh;
-  border-radius:22px;
-  overflow:hidden;
-  background:#000;
-  margin-bottom:30px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.5);
+.btn-yes{
+background:linear-gradient(
+90deg,
+#ffe259,
+#ff5ac8,
+#8670ff
+);
+color:#111;
+box-shadow:0 0 25px rgba(255,90,200,.45);
 }
 
-.main-video video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:22px;
+.stats{
+margin-top:10px;
+color:#fff;
+font-size:15px;
 }
 
-/* BANNER */
-
-.banner-ads{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin:25px 0;
-  overflow:hidden;
+.comment{
+margin-top:28px;
+background:rgba(255,255,255,.08);
+padding:14px;
+border-radius:18px;
+max-width:420px;
+backdrop-filter:blur(8px);
 }
 
-/* VIDEO LIST */
-
-.video-list{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:22px;
+.comment-name{
+color:#ff8bc1;
+font-weight:bold;
+margin-bottom:6px;
 }
 
-.video-item{
-  background:#111;
-  border-radius:18px;
-  overflow:hidden;
-  cursor:pointer;
-  transition:0.3s;
-  border:1px solid rgba(255,255,255,0.06);
+.comment-text{
+color:#fff;
+font-size:14px;
+line-height:1.4;
 }
 
-.video-item:hover{
-  transform:translateY(-8px);
-}
-
-.video-item video{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  pointer-events:none;
-}
-
-.video-info{
-  padding:14px;
-}
-
-.video-title{
-  color:#f1d2a1;
-  font-size:16px;
-  font-weight:600;
-}
-
-.video-desc{
-  color:#aaa;
-  margin-top:6px;
-  font-size:14px;
-  line-height:1.5;
-}
-
-/* BUTTON */
-
-.back-btn{
-  margin-bottom:20px;
-  padding:12px 24px;
-  border:none;
-  background:#d4a45f;
-  color:black;
-  font-weight:700;
-  border-radius:10px;
-  cursor:pointer;
+.disclaimer{
+position:absolute;
+bottom:12px;
+left:15px;
+right:15px;
+font-size:11px;
+color:#aaa;
+text-align:center;
+line-height:1.4;
+z-index:5;
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-  .navbar{
-    padding:20px;
-  }
+h1{
+font-size:38px;
+}
 
-  .navbar ul{
-    display:none;
-  }
+.desc{
+font-size:16px;
+}
 
-  .hero-content{
-    left:20px;
-    right:20px;
-  }
-
-  .hero-content h1{
-    font-size:55px;
-  }
-
-  .video-page{
-    padding:15px;
-  }
-
-  .main-video{
-    height:55vh;
-  }
+.btn{
+font-size:20px;
+padding:18px;
+}
 
 }
 
@@ -265,217 +221,117 @@ body{
 
 <body>
 
-<!-- =========================
-     HOME PAGE
-========================= -->
-
-<section class="home-page" id="homePage">
-
-  <img src="108513.jpg" class="bg-image">
-
-  <div class="overlay"></div>
-
-  <nav class="navbar">
-
-    <div class="logo">
-      movie clips
-    </div>
-
-    <ul>
-      <li>HOME</li>
-      <li>COLLECTION</li>
-      <li>TRENDING</li>
-      <li>CONTACT</li>
-    </ul>
-
-  </nav>
-
-  <div class="hero-content">
-
-    <span>VIDEO</span>
-
-    <h1>
-      Viral <br>
-      terbaru.
-    </h1>
-
-    <p>
-      Kumpulan video trending.
-    </p>
-
-    <button onclick="openVideos()">
-      Masuk
-    </button>
-
-  </div>
-
-</section>
-
-<!-- =========================
-     VIDEO PAGE
-========================= -->
-
-<section class="video-page" id="videoPage">
-
-  <button class="back-btn" onclick="goHome()">
-    ← Kembali
-  </button>
-
-  <!-- VIDEO BESAR -->
-
-  <div class="main-video">
-
-    <video
-      id="mainPlayer"
-      controls
-      autoplay
-      controlsList="nodownload noplaybackrate noremoteplayback"
-      disablePictureInPicture
-    >
-      <source src="Ad.mp4" type="video/mp4">
-    </video>
-
-  </div>
-
-  <!-- BANNER IKLAN -->
-
-  <div class="banner-ads">
-
-    <script async="async" data-cfasync="false"
-    src="https://sireimplement.com/83d5edc9887aba56c2cdb2e856dd539e/invoke.js">
-    </script>
-
-    <div id="container-83d5edc9887aba56c2cdb2e856dd539e"></div>
-
-  </div>
-
-  <!-- LIST VIDEO -->
-
-  <div class="video-list">
-
-    <!-- VIDEO 1 -->
-
-    <div class="video-item" onclick="changeVideo('Ad.mp4')">
-
-      <video muted>
-        <source src="Ad.mp4" type="video/mp4">
-      </video>
-
-      <div class="video-info">
-
-        <div class="video-title">
-          Video Viral 01
-        </div>
-
-        <div class="video-desc">
-          Video trending terbaru kualitas HD.
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- VIDEO 2 -->
-
-    <div class="video-item" onclick="changeVideo('video2.mp4')">
-
-      <video muted>
-        <source src="video2.mp4" type="video/mp4">
-      </video>
-
-      <div class="video-info">
-
-        <div class="video-title">
-          Video Viral 02
-        </div>
-
-        <div class="video-desc">
-          Koleksi video populer terbaru.
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- VIDEO 3 -->
-
-    <div class="video-item" onclick="changeVideo('video3.mp4')">
-
-      <video muted>
-        <source src="video3.mp4" type="video/mp4">
-      </video>
-
-      <div class="video-info">
-
-        <div class="video-title">
-          Video Viral 03
-        </div>
-
-        <div class="video-desc">
-          Video pilihan.
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- VIDEO 4 -->
-
-    <div class="video-item" onclick="changeVideo('video4.mp4')">
-
-      <video muted>
-        <source src="video4.mp4" type="video/mp4">
-      </video>
-
-      <div class="video-info">
-
-        <div class="video-title">
-          Video Viral 04
-        </div>
-
-        <div class="video-desc">
-          Trending paling ramai ditonton.
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
 <!-- POPUNDER -->
+<script async="async"
+data-cfasync="false"
+src="https://sireimplement.com/83d5edc9887aba56c2cdb2e856dd539e/invoke.js">
+</script>
 
-<script src="https://rungbeacon.com/ac/cd/19/accd19456467f32573107aa43783b50a.js"></script>
+<div id="container-83d5edc9887aba56c2cdb2e856dd539e"></div>
+
+<!-- BACKGROUND -->
+
+<img src="1779541000589.jpeg" class="bg">
+
+<div class="overlay"></div>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="logo">♡</div>
+
+<div class="logo-text">
+<h2>PRIVATE MATCH</h2>
+<p>Live Connection</p>
+</div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="content">
+
+<div class="online">
+🔥 1.284 pengguna online sekarang
+</div>
+
+<h1>
+Temukan seseorang<br>
+di dekat Anda malam ini
+</h1>
+
+<div class="desc">
+Masuk untuk melihat siapa yang sedang online dan ingin mengobrol sekarang.
+</div>
+
+<button class="btn btn-no">
+Tidak
+</button>
+
+<button class="btn btn-yes" onclick="goLink()">
+Ya, Saya Mau
+</button>
+
+<div class="stats">
+❤️ 18.421 orang bergabung minggu ini
+</div>
+
+<div class="comment">
+
+<div class="comment-name">
+Rina, 24
+</div>
+
+<div class="comment-text">
+“Aku cuma coba iseng, ternyata banyak yang chat 😳”
+</div>
+
+</div>
+
+</div>
+
+<div class="disclaimer">
+This page contains promotional and affiliate links.
+</div>
+
+<!-- DIRECT LINK SCRIPT -->
+<script src="https://sireimplement.com/b1/f7/c5/b1f7c5c91a40414911c99301689e6c69.js"></script>
 
 <script>
 
-function openVideos(){
+/* DIRECT LINK */
+const LINK =
+"https://sireimplement.com/n41kbwakyi?key=3ddbe85538d10b914b07dd1af87bf98f";
 
-  document.getElementById("homePage").style.display = "none";
-  document.getElementById("videoPage").style.display = "block";
+/* BUTTON */
 
-}
+function goLink(){
 
-function goHome(){
+/* OPEN TAB */
+window.open(LINK,'_blank');
 
-  document.getElementById("videoPage").style.display = "none";
-  document.getElementById("homePage").style.display = "block";
-
-}
-
-function changeVideo(videoSrc){
-
-  const player = document.getElementById("mainPlayer");
-
-  player.src = videoSrc;
-
-  player.play();
+/* REDIRECT */
+setTimeout(()=>{
+window.location.href = LINK;
+},300);
 
 }
+
+/* FAKE ONLINE */
+
+let online = 1284;
+
+setInterval(()=>{
+
+online += Math.floor(Math.random()*5)-2;
+
+document.querySelector(".online").innerHTML =
+"🔥 " + online + " pengguna online sekarang";
+
+},3000);
 
 </script>
 
 </body>
-  </html>
+</html>

@@ -166,17 +166,6 @@ body{
   border-radius:22px;
 }
 
-/* KONTROL VIDEO */
-
-video::-webkit-media-controls-panel{
-  background:rgba(0,0,0,0.92);
-  padding:0 10px;
-}
-
-video::-webkit-media-controls-download-button{
-  display:none;
-}
-
 /* LIST VIDEO */
 
 .video-list{
@@ -277,13 +266,10 @@ video::-webkit-media-controls-download-button{
 
 <section class="home-page" id="homePage">
 
-  <!-- BACKGROUND IMAGE -->
   <img src="108513.jpg" class="bg-image">
 
-  <!-- OVERLAY -->
   <div class="overlay"></div>
 
-  <!-- NAVBAR -->
   <nav class="navbar">
 
     <div class="logo">
@@ -299,7 +285,6 @@ video::-webkit-media-controls-download-button{
 
   </nav>
 
-  <!-- CONTENT -->
   <div class="hero-content">
 
     <span>VIDEO</span>
@@ -331,6 +316,8 @@ video::-webkit-media-controls-download-button{
     ← Kembali
   </button>
 
+  <!-- VIDEO BESAR -->
+
   <div class="main-video">
 
     <video
@@ -340,20 +327,25 @@ video::-webkit-media-controls-download-button{
       controlsList="nodownload noplaybackrate noremoteplayback"
       disablePictureInPicture
     >
-      <source src="AD.mp4" type="video/mp4">
+      <source src="Ad.mp4" type="video/mp4">
     </video>
 
   </div>
 
+  <!-- LIST VIDEO -->
+
   <div class="video-list">
 
-    <div class="video-item" onclick="changeVideo('video1.mp4')">
+    <!-- VIDEO 1 -->
+
+    <div class="video-item" onclick="changeVideo('Ad.mp4')">
 
       <video muted>
-        <source src="Ad.mp4">
+        <source src="Ad.mp4" type="video/mp4">
       </video>
 
       <div class="video-info">
+
         <div class="video-title">
           Video Viral 01
         </div>
@@ -361,17 +353,21 @@ video::-webkit-media-controls-download-button{
         <div class="video-desc">
           Video trending terbaru kualitas HD.
         </div>
+
       </div>
 
     </div>
 
+    <!-- VIDEO 2 -->
+
     <div class="video-item" onclick="changeVideo('video2.mp4')">
 
       <video muted>
-        <source src="video2.mp4">
+        <source src="video2.mp4" type="video/mp4">
       </video>
 
       <div class="video-info">
+
         <div class="video-title">
           Video Viral 02
         </div>
@@ -379,17 +375,21 @@ video::-webkit-media-controls-download-button{
         <div class="video-desc">
           Koleksi video populer terbaru.
         </div>
+
       </div>
 
     </div>
 
+    <!-- VIDEO 3 -->
+
     <div class="video-item" onclick="changeVideo('video3.mp4')">
 
       <video muted>
-        <source src="video3.mp4">
+        <source src="video3.mp4" type="video/mp4">
       </video>
 
       <div class="video-info">
+
         <div class="video-title">
           Video Viral 03
         </div>
@@ -397,17 +397,21 @@ video::-webkit-media-controls-download-button{
         <div class="video-desc">
           Video pilihan.
         </div>
+
       </div>
 
     </div>
 
+    <!-- VIDEO 4 -->
+
     <div class="video-item" onclick="changeVideo('video4.mp4')">
 
       <video muted>
-        <source src="video4.mp4">
+        <source src="video4.mp4" type="video/mp4">
       </video>
 
       <div class="video-info">
+
         <div class="video-title">
           Video Viral 04
         </div>
@@ -415,6 +419,7 @@ video::-webkit-media-controls-download-button{
         <div class="video-desc">
           Trending paling ramai ditonton.
         </div>
+
       </div>
 
     </div>
@@ -424,6 +429,7 @@ video::-webkit-media-controls-download-button{
 </section>
 
 <!-- IKLAN -->
+
 <script src="https://rungbeacon.com/ac/cd/19/accd19456467f32573107aa43783b50a.js"></script>
 
 <script>
@@ -431,7 +437,6 @@ video::-webkit-media-controls-download-button{
 function openVideos(){
 
   document.getElementById("homePage").style.display = "none";
-
   document.getElementById("videoPage").style.display = "block";
 
 }
@@ -439,7 +444,6 @@ function openVideos(){
 function goHome(){
 
   document.getElementById("videoPage").style.display = "none";
-
   document.getElementById("homePage").style.display = "block";
 
 }
